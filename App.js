@@ -14,6 +14,10 @@ import Activity1 from './components/Activity1';
 import Activity2 from './components/Activity2';
 import Activity3 from './components/Activity3';
 import Activity4 from './components/Activity4';
+import Activity5 from './components/Activity5';
+import Activity6 from './components/Activity6';
+import Activity7 from './components/Activity7';
+import Activity8 from './components/Activity8';
 
 const HomeScreen = ({ navigation }) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -37,6 +41,26 @@ const HomeScreen = ({ navigation }) => (
       <TouchableOpacity onPress={() => navigation.navigate('Activity4')}>
         <View style={styles.button}>
           <Text style={{ padding: 10 }}>Activity 4</Text>
+        </View>
+      </TouchableOpacity>
+       <TouchableOpacity onPress={() => navigation.navigate('Activity5')}>
+        <View style={styles.button}>
+          <Text style={{ padding: 10 }}>Activity 5</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Activity6')}>
+        <View style={styles.button}>
+          <Text style={{ padding: 10 }}>Activity 6</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Activity7')}>
+        <View style={styles.button}>
+          <Text style={{ padding: 10 }}>Activity 7</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Activity8')}>
+        <View style={styles.button}>
+          <Text style={{ padding: 10 }}>Activity 8</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -84,6 +108,30 @@ const RootNavigator = StackNavigator({
     screen: Activity4,
     navigationOptions: {
       headerTitle: 'Activity4',
+    },
+  },
+  Activity5: {
+    screen: Activity5,
+    navigationOptions: {
+      headerTitle: 'Activity5',
+    },
+  },
+  Activity6: {
+    screen: Activity6,
+    navigationOptions: {
+      headerTitle: 'Activity6',
+    },
+  },
+  Activity7: {
+    screen: Activity7,
+    navigationOptions: {
+      headerTitle: 'Activity7',
+    },
+  },
+  Activity8: {
+    screen: Activity8,
+    navigationOptions: {
+      headerTitle: 'Activity8',
     },
   },
 });
