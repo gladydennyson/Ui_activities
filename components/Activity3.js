@@ -79,15 +79,25 @@ export default class Activity3 extends Component {
                   </View>
           </View>
 
+      <View style={{flex: 1, flexDirection: 'row', marginBottom:10}}>
 
-          <View style={styles.subBox}>
+              <View style={styles.subBox}>
+              <TouchableOpacity onPress={() => this._clear()}>
+              <View style={styles.button1}>
+                <Text style={{fontSize:25, fontWeight:'bold', color:'#BB0000'}}>CLEAR</Text>
+              </View>
+              </TouchableOpacity>
+              </View>
+
+
+              <View style={styles.subBox}>
                     <TouchableOpacity onPress={() => this._handleSubmitPress()}>
                       <View style={styles.button1}>
-                        <Text style={{fontSize:20, color:'#ffffff'}}>SUBMIT</Text>
-                      </View>
+                        <Text style={{fontSize:25, color:'#ffffff'}}>SUBMIT</Text>
+              </View>
                     </TouchableOpacity>
             </View>
-
+      </View>
         </View>
             );
   }
@@ -129,7 +139,8 @@ const styles = StyleSheet.create({
   opsBox: {
     flex:6,
     borderRadius:5,
-    marginLeft:15
+    marginLeft:15,
+    paddingBottom:25,
   },
   
   subBox: {

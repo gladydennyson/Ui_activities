@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet,Dimensions } from 'react-native';
 
+import * as Progress from 'react-native-progress';
+
+
 var received_comp = new Array();
 var received_supp = new Array();
 received_comp = 'apple ate';
@@ -10,6 +13,12 @@ var supp_words = new Array();
 var answer = '';
 var message1 = 'Compulsary words';
 var message2 = 'Supplementary words';
+
+
+
+
+
+
 
 export default class Activity4 extends Component {
     
@@ -69,6 +78,28 @@ export default class Activity4 extends Component {
 
       <View style={styles.container}>
 
+		<View style={{margin:20}}>
+          <Progress.Bar progress={0.6} height={8} unfilledColor={'rgba(154,154,154,1)'}width={320} borderWidth={0} borderRadius={0} />
+          </View>
+          <Text style={styles.titleQuestion}>
+         Pick the words from the list to form your answer
+          </Text>
+
+
+
+        
+      	<View style={styles.hint}>
+          <Text style={{ color: 'white' }}>
+            Your answer
+          </Text>
+        </View>
+        <View style={styles.opsBox} >
+          <Text style={{fontSize:20}}>
+            {answer}
+          </Text>
+        </View>
+
+
         <View style={styles.compBox}>
           <Text style={styles.text}>
             {message1}
@@ -85,31 +116,26 @@ export default class Activity4 extends Component {
       			{ buttons2 }
       		</View>
         </View>
-        <View style={styles.hint}>
-          <Text style={{ color: 'white' }}>
-            Your answer...
-          </Text>
-        </View>
-        <View style={styles.opsBox} >
-          <Text style={{fontSize:20}}>
-            {answer}
-          </Text>
-        </View>
-        <View style={styles.subBox}>
-            <TouchableOpacity onPress={() => this._clear()}>
-              <View style={styles.button}>
-                <Text style={{fontSize:20, fontWeight:'bold', color:'#BB0000'}}>CLEAR</Text>
+        
+      <View style={{flex: 1, flexDirection: 'row', marginBottom:10}}>
+
+              <View style={styles.subBox}>
+              <TouchableOpacity onPress={() => this._clear()}>
+              <View style={styles.button1}>
+                <Text style={{fontSize:25, fontWeight:'bold', color:'#BB0000'}}>CLEAR</Text>
               </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.subBox}>
-            <TouchableOpacity>
-              <View style={styles.button}>
-                <Text style={{fontSize:20, fontWeight:'bold', color:'#00DD00'}}>SUBMIT</Text>
+              </TouchableOpacity>
               </View>
-          </TouchableOpacity>
-          </View>
-      
+
+
+              <View style={styles.subBox}>
+                    <TouchableOpacity onPress={() => this._handleSubmitPress()}>
+                      <View style={styles.button1}>
+                        <Text style={{fontSize:25, color:'#ffffff'}}>SUBMIT</Text>
+              </View>
+                    </TouchableOpacity>
+            </View>
+      </View>
       </View>
     );
   }
@@ -120,7 +146,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     // paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#34495e',
+      backgroundColor: '#e5e5e5',
   },
   button: {
     margin: 5,
@@ -141,7 +167,7 @@ const styles = StyleSheet.create({
   },
   hint: {
     padding: 15,
-    alignItems: 'center',
+
     alignSelf: 'stretch',
     backgroundColor: '#5C6BC0',
   },
@@ -156,11 +182,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#9FA8DA',
   },
   subBox: {
-    flex: 1,
+    flex: 2,
     alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'center',
-    backgroundColor: '#3F51B5',
+    backgroundColor: '#e5e5e5',
   },
   text: {
     padding: 10,
@@ -170,5 +196,20 @@ const styles = StyleSheet.create({
 
     flexDirection: 'row',
     flexWrap: 'wrap'
+  },
+   titleQuestion:{
+     justifyContent:'center',
+     fontSize:22,
+     fontWeight:'bold',
+     padding:10,
+     marginLeft:9,
+     color:'#000000'
+ },
+    button1: {
+    margin: 25,
+    width: 120,
+    alignItems: 'center',
+    backgroundColor: '#1c3370',
+    borderRadius:5
   },
 });
